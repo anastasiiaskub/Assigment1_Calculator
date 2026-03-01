@@ -1,0 +1,14 @@
+/Users/anastasiaskub/RiderProjects/Calc202603/Calc202603/bin/Debug/net10.0/Calc202603
+/Users/anastasiaskub/RiderProjects/Calc202603/Calc202603/bin/Debug/net10.0/Calc202603.deps.json
+/Users/anastasiaskub/RiderProjects/Calc202603/Calc202603/bin/Debug/net10.0/Calc202603.runtimeconfig.json
+/Users/anastasiaskub/RiderProjects/Calc202603/Calc202603/bin/Debug/net10.0/Calc202603.dll
+/Users/anastasiaskub/RiderProjects/Calc202603/Calc202603/bin/Debug/net10.0/Calc202603.pdb
+/Users/anastasiaskub/RiderProjects/Calc202603/Calc202603/obj/Debug/net10.0/Calc202603.GeneratedMSBuildEditorConfig.editorconfig
+/Users/anastasiaskub/RiderProjects/Calc202603/Calc202603/obj/Debug/net10.0/Calc202603.AssemblyInfoInputs.cache
+/Users/anastasiaskub/RiderProjects/Calc202603/Calc202603/obj/Debug/net10.0/Calc202603.AssemblyInfo.cs
+/Users/anastasiaskub/RiderProjects/Calc202603/Calc202603/obj/Debug/net10.0/Calc202603.csproj.CoreCompileInputs.cache
+/Users/anastasiaskub/RiderProjects/Calc202603/Calc202603/obj/Debug/net10.0/Calc202603.dll
+/Users/anastasiaskub/RiderProjects/Calc202603/Calc202603/obj/Debug/net10.0/refint/Calc202603.dll
+/Users/anastasiaskub/RiderProjects/Calc202603/Calc202603/obj/Debug/net10.0/Calc202603.pdb
+/Users/anastasiaskub/RiderProjects/Calc202603/Calc202603/obj/Debug/net10.0/Calc202603.genruntimeconfig.cache
+/Users/anastasiaskub/RiderProjects/Calc202603/Calc202603/obj/Debug/net10.0/ref/Calc202603.dll
