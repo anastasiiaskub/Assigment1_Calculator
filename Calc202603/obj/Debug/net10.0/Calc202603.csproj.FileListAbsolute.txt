@@ -12,3 +12,4 @@
 /Users/anastasiaskub/RiderProjects/Calc202603/Calc202603/obj/Debug/net10.0/Calc202603.pdb
 /Users/anastasiaskub/RiderProjects/Calc202603/Calc202603/obj/Debug/net10.0/Calc202603.genruntimeconfig.cache
 /Users/anastasiaskub/RiderProjects/Calc202603/Calc202603/obj/Debug/net10.0/ref/Calc202603.dll
+/Users/anastasiaskub/RiderProjects/Calc202603/Calc202603/obj/Debug/net10.0/Calc202603.sourcelink.json
