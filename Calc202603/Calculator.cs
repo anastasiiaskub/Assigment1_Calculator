@@ -6,8 +6,11 @@ public class Calculator
     private string _leftBrackets = "(";
     private string _rightBrackets = ")";
     private string _operators = "+-*/^";
-    
-    
+    private string[] _finctions = new string[] { "sin", "cos", "max" };
+    private string _separator = ",";
+
+   
+
     public void doCalc(string _input, out double _result)
     {
         ArrayList _tokens = new ArrayList();
@@ -25,7 +28,7 @@ public class Calculator
 
     private void tokenize(string _inputT, out ArrayList _resultT)
     {
-        string _delims = _operators + _leftBrackets + _rightBrackets;
+        string _delims = _operators + _leftBrackets + _rightBrackets + _separator;
         string _buff = "";
         _resultT = new ArrayList();
 
@@ -65,6 +68,7 @@ public class Calculator
             {
                 _buff += _sym;
             }
+            
         }
 
         if (_buff.Length > 0)
@@ -75,7 +79,12 @@ public class Calculator
 
     public int operatorWeight(string _operator)
     {
-        if (_operator == "^")
+        if (_finctions.Contains(_operator))
+        {
+            return 4;
+        }
+        
+        else if (_operator == "^")
         {
             return 3;
         }
@@ -117,7 +126,7 @@ public class Calculator
                 _stack.Pull();
                 // Console.WriteLine($"{_stack.AsString()}");
             }
-            else if (_operators.Contains(_token))
+            else if (_operators.Contains(_token) || _finctions.Contains(_token))
             {
                 while (operatorWeight(_stack.GetTop())>= operatorWeight(_token) )
                 {
@@ -125,6 +134,10 @@ public class Calculator
                 }
                 
                 _stack.Push(_token);
+            }
+            else if (_separator.Contains(_token))
+            {
+                
             }
             else
             {
@@ -148,13 +161,26 @@ public class Calculator
         return _postFix;
     }
 
+    public double getStackValue(Stack _stack)
+    {
+        string _tokenStack = _stack.Pull();
+        double _num;
+
+        if (!double.TryParse(_tokenStack, out _num))
+        {
+            throw new Exception($"token {_tokenStack} is not number");
+        }
+
+        return _num;
+    }
+
     public void evaluatePrefix(ArrayList _postFix, out double _result)
     {
         _result = 0;
         Stack _stack = new Stack();
         string _token;
-        string _tokenStack1;
-        string _tokenStack2;
+        // string _tokenStack1;
+        // string _tokenStack2;
         double _num1;
         double _num2;
         double _res0;
@@ -163,19 +189,39 @@ public class Calculator
         {
             _token = _postFix.GetAt(_idxP);
             // Console.WriteLine($"_postFix[{_idxP}]={_token}");
-            if (_operators.Contains(_token))
+            if (_finctions.Contains(_token))
             {
-                _tokenStack1 = _stack.Pull();
-                _tokenStack2 = _stack.Pull();
+                _num1 = getStackValue(_stack);
 
-                if (!double.TryParse(_tokenStack1, out _num1))
+                if (_token == "sin")
                 {
-                    throw new Exception($"Token {_tokenStack1} is not a number");
+                    _res0 = Math.Sin(_num1);
+                    Console.WriteLine($"sin({_num1}) = {_res0}");
                 }
-                if (!double.TryParse(_tokenStack2, out _num2))
+                else if (_token == "cos")
                 {
-                    throw new Exception($"Token {_tokenStack2} is not a number");
+                    _res0 = Math.Cos(_num1);
+                    Console.WriteLine($"cos({_num1}) = {_res0}");
                 }
+                else if (_token == "max")
+                {
+                    _num2 = getStackValue(_stack);
+                    _res0 = Math.Max(_num1, _num2);
+                    Console.WriteLine($"max({_num1}, {_num2}) = {_res0}");
+                }
+                else
+                {
+                    _res0 = 0;
+                    throw new Exception($"function {_token} unknown");
+                }
+
+                _stack.Push(_res0.ToString());
+            }
+
+            else if (_operators.Contains(_token))
+            {
+                _num1 = getStackValue(_stack);
+                _num2 = getStackValue(_stack);
 
                 if (_token == "-")
                 {
@@ -206,7 +252,15 @@ public class Calculator
             }
             else
             {
-                _stack.Push(_token);
+                if (!double.TryParse(_token, out _res0))
+                {
+                    throw new Exception($"function/operator {_token} unknown");
+                }
+                else
+                {
+                    _stack.Push(_res0.ToString());
+                }
+                
             }
             
         }
